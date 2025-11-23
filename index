@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>School Farewell 2026 – Class XII</title>
+  <meta name="description" content="Our official farewell microsite: front page, class photo gallery, yearbook messages, and invite to seniors." />
+  <style>
+    :root{
+      --bg:#0b1220;--card:#101a30;--text:#e6edf6;--muted:#a7b3c7;--brand:#7c5cff;--brand2:#18d1b8;--radius:18px;--ring:0 0 0 3px rgba(124,92,255,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;background:radial-gradient(1200px 800px at 80% -10%, #1a2544 0%, transparent 50%), var(--bg);color:var(--text)}
+    a{color:var(--brand)} a:hover{text-decoration:none}
+    .container{max-width:1100px;margin-inline:auto;padding:0 20px}
+
+    /* nav */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.7);backdrop-filter:blur(8px);border-bottom:1px solid #18223d}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand .logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:0 8px 30px rgba(124,92,255,.35)}
+    .nav-links{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:none;border-radius:12px;padding:10px 14px;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(124,92,255,.35)}
+
+    header.hero{padding:80px 0 40px;background:radial-gradient(900px 500px at -10% 10%, rgba(24,209,184,.15), transparent 40%), radial-gradient(900px 500px at 110% 0%, rgba(124,92,255,.18), transparent 40%)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .tag{display:inline-block;padding:6px 10px;border:1px solid #2a3761;border-radius:999px;color:var(--muted);font-size:12px}
+    h1{font-size:42px;margin:12px 0 8px;line-height:1.1}
+    .lead{color:var(--muted);font-size:18px}
+    .card{background:var(--card);border:1px solid #1b2748;border-radius:var(--radius);padding:18px}
+
+    section{padding:64px 0}
+    .section-title{font-size:28px;margin:0 0 16px}
+    .muted{color:var(--muted)}
+
+    /* yearbook */
+    .yearbook-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .y-card{background:#0c152a;border:1px solid #1b2748;border-radius:16px;padding:14px;display:grid;gap:8px}
+    .y-note{min-height:72px;padding:10px;border-radius:12px;border:1px dashed #26345e}
+    .y-note[contenteditable="true"]:focus{outline:none;box-shadow:var(--ring)}
+
+    /* invite */
+    .invite{display:grid;gap:10px;background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));}
+    .invite-head{font-size:22px;font-weight:800}
+    .invite-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+    @media print{
+      nav, #confetti, #downloadInvite, #addCalBtn{display:none!important}
+      body{background:white;color:#000}
+      .card, .y-card{border:1px solid #bbb}
+      .yearbook-grid{grid-template-columns:repeat(3,1fr)}
+      section{break-after:page}
+    }
+
+    #confetti{position:fixed;inset:0;pointer-events:none}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><div class="logo">🎓</div><div>Farewell ‘26</div></div>
+      <div class="nav-links">
+        <a href="#front">Front</a>
+        <a href="#classphoto">Class Photos</a>
+        <a href="#messages">Messages</a>
+        <a href="#invite">Invite</a>
+      </div>
+      <button class="btn" id="addCalBtn">➕ Add to Calendar</button>
+    </div>
+  </nav>
+
+  <!-- FRONT -->
+  <header class="hero" id="front">
+    <div class="container hero-grid">
+      <div>
+        <span class="tag">Class of 2026 • Graduation Farewell</span>
+        <h1>One Last Time, Together ✨</h1>
+        <p class="lead">Join us for an evening of smiles, nostalgia, and laughter as we celebrate our graduating class.</p>
+        <div class="card">
+          <div style="display:grid;gap:8px">
+            <div><strong>Date:</strong> 15 March 2026</div>
+            <div><strong>Time:</strong> 5:00 PM – 9:00 PM</div>
+            <div><strong>Venue:</strong> School Auditorium</div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#classphoto">📸 Class Photos</a>
+            <a class="btn" href="#invite" style="background:#18233f">📝 Invite</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <video style="width:100%;border-radius:16px;border:1px solid #1b2748" autoplay muted loop playsinline>
+          <source src="https://cdn.coverr.co/videos/coverr-graduation-hats-4875/1080p.mp4" type="video/mp4"/>
+        </video>
+      </div>
+    </div>
+  </header>
+
+  <!-- CLASS PHOTO GALLERY -->
+  <section id="classphoto">
+    <div class="container">
+      <h2 class="section-title">Our Class Photo Gallery</h2>
+      <p class="muted">Below is the full album of our class farewell — loaded directly from Google Drive.</p>
+      <iframe src="https://drive.google.com/embeddedfolderview?id=1xdE4W_LLvHYZuHt3Ka6Rx5vU7TvrZmT2#grid" allowfullscreen style="width:100%;height:80vh;border:none;border-radius:12px"></iframe>
+      <p style="text-align:center"><a href="https://drive.google.com/drive/folders/1xdE4W_LLvHYZuHt3Ka6Rx5vU7TvrZmT2?usp=sharing" target="_blank" style="color:#18d1b8;text-decoration:none;font-weight:bold">📂 Open Album in Google Drive</a></p>
+    </div>
+  </section>
+
+  <!-- YEARBOOK -->
+  <section id="messages">
+    <div class="container">
+      <h2 class="section-title">Yearbook Messages</h2>
+      <p class="muted">Write a few words for your classmates below.</p>
+      <div id="messageGrid" class="yearbook-grid"></div>
+      <div style="margin-top:20px">
+        <button class="btn" id="printBtn">🖨️ Print / Save PDF</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVITE -->
+  <section id="invite">
+    <div class="container">
+      <h2 class="section-title">Invitation to Our Seniors</h2>
+      <div class="invite card">
+        <div class="invite-head">You Are Warmly Invited</div>
+        <div class="invite-body">
+          <p>Dear Seniors (Batch 2025),</p>
+          <p>On behalf of Class XII, we invite you to our <strong>Farewell Evening</strong> to celebrate your journey and wish you the brightest future ahead.</p>
+          <ul>
+            <li><strong>Date:</strong> 06 DEC 2025</li>
+            <li><strong>Time:</strong> 8:00 AM – 1:00 PM</li>
+            <li><strong>Venue:</strong> School Auditorium</li>
+            <li><strong>Dress Code:</strong> Ethnic / Formal</li>
+          </ul>
+        </div>
+        <div class="invite-footer">
+          <div>— Cultural Committee & Class Representatives</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <canvas id="confetti"></canvas>
+  <script>
+    const STUDENTS = [
+      {name:"Aarav Sharma"}, {name:"Ananya Gupta"}, {name:"Ishaan Verma"},
+      {name:"Diya Singh"}, {name:"Kabir Patel"}, {name:"Riya Mehta"}
+    ];
+    function renderYearbook(){
+      const grid = document.getElementById('messageGrid');
+      grid.innerHTML = STUDENTS.map((s,i)=>`<div class='y-card'><div><strong>${i+1}. ${s.name}</strong></div><div class='y-note' contenteditable='true' data-i='${i}'>Write your message...</div></div>`).join('');
+    }
+    renderYearbook();
+    document.getElementById('printBtn').onclick=()=>window.print();
+  </script>
+</body>
+</html>
